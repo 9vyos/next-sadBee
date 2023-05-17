@@ -1,26 +1,36 @@
 <script lang="ts" setup>
 const { $api }: any = useNuxtApp();
-// console.log($api);
-// const login = gql`
-//   mutation Login($email: String!, $password: String!) {
-//     login(loginUserRequest: { email: $email, password: $password }) {
-//       userId
-//       jwtToken
-//     }
-//   }
-// `;
 
 const variables = {
   email: 'hjy4649@naver.com',
   password: '1234',
 };
-// const { mutate } = useMutation(login, { variables });
+const { data: loginData } = await $api.login(variables);
+// console.log(loginData.login);
 
-console.log(await $api.login(variables));
+// const { data: productData } = await $api.getProduct();
+
+const data = ref(null);
+
+const test = async () => {
+  console.log(await $api.getProduct());
+};
+await test();
+data.value = $api.getProduct();
+
+// console.log(data.value);
 </script>
 
 <template>
-  <div>Page: foo</div>
+  <div>
+    <div>Page: foo</div>
+    <p>{{ data }}</p>
+    <!-- <ul>
+      <li v-for="item in data.getProducts">
+        {{ item.name }}
+      </li>
+    </ul> -->
+  </div>
 </template>
 
 <style scoped></style>
