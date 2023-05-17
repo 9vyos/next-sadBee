@@ -1,5 +1,23 @@
 import { client } from './query';
-
+interface categoryType {
+  id: number;
+  name: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+interface imageType {
+  id: string;
+  imageUrl: string;
+  isMain: Boolean;
+}
+interface Product {
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  category: categoryType;
+  productImages: imageType;
+}
 interface LoginInput {
   email: string;
   password: string;
@@ -20,8 +38,9 @@ export default class Apollo {
     return await mutate();
   }
   async getProduct() {
-    const { data } = await useAsyncQuery(client.query.getProduct);
+    const { data } = await useAsyncQuery<Product>(client.query.getProduct);
 
+    // return await useAsyncQuery<Product>(client.query.getProduct);
     return data;
   }
 }
