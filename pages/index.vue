@@ -1,29 +1,6 @@
 <script lang="ts" setup>
 const { $api }: any = useNuxtApp();
 
-// const getProduct = gql`
-//   query {
-//     getProducts {
-//       id
-//       name
-//       price
-//       description
-//       category {
-//         id
-//         name
-//         createdAt
-//         updatedAt
-//       }
-//       productImages {
-//         imageUrl
-//         isMain
-//         id
-//       }
-//     }
-//   }
-// `;
-// const { data: getProducts } = await useAsyncQuery<Product>(getProduct);
-// console.log(getProducts.value);
 const variables = {
   email: 'hjy4649@naver.com',
   password: '1234',
