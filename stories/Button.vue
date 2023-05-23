@@ -1,5 +1,7 @@
 <template>
-  <button type="button" :class="classes" @click="onClick" :style="style">{{ label }}</button>
+  <button type="button" :class="classes" @click="onClick" :style="style">
+    {{ label }}
+  </button>
 </template>
 
 <script>
@@ -15,6 +17,10 @@ export default {
       required: true,
     },
     primary: {
+      type: Boolean,
+      default: false,
+    },
+    red: {
       type: Boolean,
       default: false,
     },
@@ -37,7 +43,8 @@ export default {
       classes: computed(() => ({
         'storybook-button': true,
         'storybook-button--primary': props.primary,
-        'storybook-button--secondary': !props.primary,
+        'storybook-button--red': props.red,
+        'storybook-button--secondary': !props.red && !props.primary,
         [`storybook-button--${props.size || 'medium'}`]: true,
       })),
       style: computed(() => ({

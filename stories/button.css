@@ -11,6 +11,10 @@
   color: white;
   background-color: #1ea7fd;
 }
+.storybook-button--red{
+  color: white;
+  background-color:red;
+}
 .storybook-button--secondary {
   color: #333;
   background-color: transparent;

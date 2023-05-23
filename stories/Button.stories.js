@@ -26,6 +26,12 @@ export const Primary = {
     label: 'Button',
   },
 };
+export const Red = {
+  args: {
+    red: true,
+    label: 'Button',
+  },
+};
 
 export const Secondary = {
   args: {

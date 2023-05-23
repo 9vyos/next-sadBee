@@ -15,14 +15,18 @@
     "@storybook/addon-essentials": "^7.0.12",
     "@storybook/addon-interactions": "^7.0.12",
     "@storybook/addon-links": "^7.0.12",
+    "@storybook/addon-postcss": "^2.0.0",
     "@storybook/blocks": "^7.0.12",
     "@storybook/testing-library": "^0.0.14-next.2",
     "@storybook/vue3": "^7.0.12",
     "@storybook/vue3-vite": "^7.0.12",
     "@types/node": "^18",
+    "autoprefixer": "^10.4.14",
     "nuxt": "^3.5.0",
+    "postcss": "^8.4.23",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "^7.0.12"
+    "storybook": "^7.0.12",
+    "tailwindcss": "^3.3.2"
   }
 }
