@@ -27,6 +27,12 @@ interface SignUpInput {
   password: string;
   name: string;
 }
+interface updateProduct {
+  productId: number;
+  name: string;
+  price: number;
+  description: string;
+}
 
 export default class Apollo {
   async login(variables: LoginInput) {
@@ -37,10 +43,16 @@ export default class Apollo {
     const { mutate } = useMutation(client.mutate.signUp, { variables });
     return await mutate();
   }
+  async updateProduct(variables: updateProduct) {
+    const { mutate } = useMutation(client.mutate.updateProduct, { variables });
+    return await mutate();
+  }
   async getProduct() {
     const { data } = await useAsyncQuery<Product>(client.query.getProduct);
-
-    // return await useAsyncQuery<Product>(client.query.getProduct);
+    return data;
+  }
+  async getOneProduct() {
+    const { data } = await useAsyncQuery<Product>(client.query.getOneProduct);
     return data;
   }
 }

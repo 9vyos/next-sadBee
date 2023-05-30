@@ -21,6 +21,27 @@ export const client = {
         }
       }
     `,
+    getOneProduct: gql`
+      query {
+        getOneProduct(productId: 41) {
+          id
+          name
+          price
+          description
+          category {
+            id
+            name
+            createdAt
+            updatedAt
+          }
+          productImages {
+            imageUrl
+            isMain
+            id
+          }
+        }
+      }
+    `,
   },
   mutate: {
     login: gql`
@@ -45,6 +66,35 @@ export const client = {
           email
           name
           userType
+        }
+      }
+    `,
+    updateProduct: gql`
+      mutation UpdateProduct(
+        $productId: Float!
+        $name: String!
+        $price: Float!
+        $description: String!
+      ) {
+        updateProduct(
+          productId: $productId
+          request: { name: $name, price: $price, description: $description }
+        ) {
+          id
+          name
+          price
+          description
+          category {
+            id
+            name
+            createdAt
+            updatedAt
+          }
+          productImages {
+            id
+            imageUrl
+            isMain
+          }
         }
       }
     `,
